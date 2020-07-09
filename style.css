@@ -1,0 +1,112 @@
+body{
+  background-color: antiqueWhite;
+  color: #555;
+
+  font-family: 'Montserrat', sans-serif;
+}
+
+p {
+  line-height: 1.5;
+}
+
+#header {
+background-color: #1abc9c;
+}
+
+#header   {
+height: 150px;
+line-height: 150px;
+background-color: #1abc9c;
+}
+
+#header a {
+text-transform: uppercase;
+text-decoration: none;
+color: white;
+letter-spacing: 0.2em;
+}
+
+#header a:hover {
+  color: #222;
+}
+
+#header-title {
+display: block;
+float: left;
+font-size: 20px;
+margin-left: 25px;
+font-weight:;
+}
+
+#header-nav li{
+  display: block;
+  float: right;
+  display: inline;
+  padding-left: 20px;
+  margin: 0 10px 0 0;
+}
+
+.container {
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+#footer {
+  background-color: #2f2f2f;
+  padding: 50px 0;
+}
+
+#footer h4 {
+  color: antiqueWhite;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+#footer p {
+  color: antiqueWhite;
+}
+
+.column {
+  min-width: 300px;
+  display: inline-block;
+  vertical-align: top;
+  margin-left: 25px;
+}
+
+a {
+  color: #1abc9c;
+  text-decoration: none;
+}
+
+a:hover {
+  color: #F6A623;
+}
+
+.post, .about {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 60px 0;
+}
+
+.post-author img {
+  width: 220px;
+  length: 300px;
+  vertical-align: middle;
+  border: 6px solid #1abc9c;
+  border-radius: 50%;
+  margin-left: 15px;
+}
+
+.post-date {
+  color: gray;
+
+  font-size: 14px;
+  font-weight: bold;
+
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+h1, h2, h3, h4 {
+  color: #333;
+}
