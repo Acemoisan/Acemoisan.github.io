@@ -319,6 +319,10 @@ section {
   margin-bottom: 0;
 }
 
+.about .profilePic {
+  scale: 1;
+}
+
 /*--------------------------------------------------------------
 # Facts
 --------------------------------------------------------------*/
@@ -452,11 +456,9 @@ section {
 }
 
 /*--------------------------------------------------------------
-# Portfolio
+# Portfolio Filters
 --------------------------------------------------------------*/
-.portfolio .portfolio-item {
-  margin-bottom: 30px;
-}
+
 .portfolio #portfolio-flters {
   padding: 0;
   margin: 0 auto 35px auto;
@@ -484,47 +486,89 @@ section {
 .portfolio #portfolio-flters li:last-child {
   margin-right: 0;
 }
-.portfolio .portfolio-wrap {
-  transition: 0.3s;
+
+/*--------------------------------------------------------------
+# Portfolio Items
+--------------------------------------------------------------*/
+
+.portfolio .portfolio-item {
+  display: flex;
+  /*align-items: center;  This will vertically center the items in the container */
+  align-items: flex-start;
+  justify-content: space-between; /* This will place the content and image on opposite ends */
+  margin-bottom: 30px;
+  padding: 25px;
+  background-color: #ffffff; 
+  box-shadow: 0px 0px 100px 5px #173b6c;
+  opacity: 0.8;
+  border: 3px #000000 solid;
+  border-radius: 5px;
+}
+
+.portfolio .portfolio-item:hover {
+  opacity: .5;
+  transition: all 200ms ease-in;
+  transform: scale(1.05) rotate(-2deg);
+  box-shadow: 0px 0px 100px 5px #121c2e;
+
+}
+
+.portfolio .portfolio-image-wrap {
+  flex: 0 1 auto;  /*This will not allow the image to grow but can shrink */
+  flex-basis: 50%; /* Allocates a specific percentage of space for the image */
+   border: 3px #000000 solid; 
+   box-shadow: 0px 0px 80px 3px #173b6c; 
+  transform: scale(.90);
+}
+
+.portfolio .portfolio-title-wrap {
+  flex: 1; /* Allows title and text to take up the remaining space */
   position: relative;
   overflow: hidden;
-  z-index: 1;
+  height: 100%;
+  padding-right: 20px;
+  text-align: left;
 }
-.portfolio .portfolio-wrap::before {
-  content: "";
-  background: rgba(255, 255, 255, 0.5);
-  position: absolute;
+
+.portfolio .portfolio-title-wrap h5{
+  color: #173b6c;
+}
+
+.portfolio .portfolio-title-wrap p{
+  color: #000000;
+}
+
+.portfolio .portfolio-image-wrap .portfolio-img {
+  max-width: 100%; /* Ensures the image is responsive and does not overflow its container */
+  height: auto; /* Maintains the aspect ratio of the image */
+}
+
+
+.portfolio .portfolio-links {
+  opacity: .8;
   left: 0;
   right: 0;
-  top: 0;
-  bottom: 0;
-  transition: all ease-in-out 0.3s;
-  z-index: 2;
-  opacity: 0;
-}
-.portfolio .portfolio-wrap .portfolio-links {
-  opacity: 1;
-  left: 0;
-  right: 0;
-  bottom: -60px;
-  z-index: 3;
+  bottom: 0px;
   position: absolute;
   transition: all ease-in-out 0.3s;
-  display: flex;
   justify-content: center;
+  display: flex;
+  padding: 10px;
 }
-.portfolio .portfolio-wrap .portfolio-links a {
+
+
+.portfolio  .portfolio-links a {
   color: #fff;
   font-size: 28px;
   text-align: center;
-  background: rgba(23, 59, 108, 0.75);
+  background: #000000;
   transition: 0.3s;
-  width: 50%;
+  width: 30%;
 }
-.portfolio .portfolio-wrap .portfolio-links a:hover {
+.portfolio  .portfolio-links a:hover {
   background: rgba(20, 157, 221, 0.95);
 }
-.portfolio .portfolio-wrap .portfolio-links a + a {
+.portfolio  .portfolio-links a + a {
   border-left: 1px solid #37b3ed;
 }
 .portfolio .portfolio-wrap:hover::before {
@@ -534,10 +578,92 @@ section {
   bottom: 0;
   opacity: 1;
 }
-.portfolio .portfolio-wrap:hover .portfolio-links {
+.portfolio .portfolio-item:hover .portfolio-links {
   opacity: 1;
   bottom: 0;
 }
+
+@media (max-width: 767px) {
+  .portfolio .portfolio-item {
+    flex-direction: column; /* Stack children (title, image, links) vertically */
+  }
+
+  .portfolio .portfolio-title-wrap {
+    order: 0; /* Place the text at the top */
+    text-align: center; /* Center text horizontally within the title wrap */
+    padding-right: 0; /* Remove any right padding that might affect centering */
+    width: 100%; /* Full width to ensure proper centering */
+    margin: 0 auto; /* Center the title wrap within the portfolio item */
+    /* Ensure that the children of title wrap are also centered */
+    display: flex;
+    flex-direction: column; /* Keep stacking the children */
+    align-items: center; /* Align children (h1, h5, p) to the center */
+    /* Remove max-width if not needed, otherwise set it to ensure it fits within the parent */
+  }
+
+  .portfolio .portfolio-image-wrap img {
+    max-width: 100%; /* Image should not be wider than its container */
+    height: auto; /* Maintain aspect ratio */
+    margin: 0 auto; /* Center image horizontally */
+  }
+
+  .portfolio .portfolio-links {
+    justify-content: center; /* Center links */
+    padding: 10px;
+    width: 100%; /* Links should span the full width */
+    text-align: center; /* Center the text of the links */
+    display: flex; /* Align links properly */
+  }
+}
+
+
+/*--------------------------------------------------------------
+# VIEW MORE
+--------------------------------------------------------------*/
+.portfolio #view-more-button {
+  /* padding: 30px 85px;
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 1;
+  text-transform: uppercase;
+  text-decoration: none !important;
+  color: #ffffff;
+  background: #000000;
+  border-radius: 50px;
+  margin: 0 auto 35px auto;
+  text-align: center;
+  cursor: pointer; 
+  transition: background-color 0.3s ease-in-out; */
+
+
+  margin: 0 auto -35px auto;
+  opacity: .8;
+  left: 0;
+  right: 0;
+  bottom: 0px;
+  position: absolute;
+  transition: all ease-in-out 0.3s;
+  justify-content: center;
+  display: flex;
+  padding: 10px;
+}
+
+.portfolio  #view-more-button a {
+  color: #fff;
+  font-size: 18px;
+  text-align: center;
+  background: #000000;
+  border-radius: 50px;
+  transition: 0.3s;
+  width: 30%;
+}
+
+.portfolio  #view-more-button a:hover {
+  background: rgba(20, 157, 221, 0.95);
+}
+
+
+
 
 /*--------------------------------------------------------------
 # Portfolio Details
