@@ -79,18 +79,27 @@ h1, h2, h3, h4, h5, h6 {
   width: 120px;
   border: 8px solid #2c2f3f;
 }
+#header .profile {
+  text-align: center;
+  padding: 20px 0;
+}
 #header .profile h1 {
   font-size: 24px;
   margin: 0;
   padding: 0;
   font-weight: 600;
-  -moz-text-align-last: center;
-  text-align-last: center;
+  text-align: center;
   font-family: "Poppins", sans-serif;
 }
 #header .profile h1 a, #header .profile h1 a:hover {
   color: #fff;
   text-decoration: none;
+}
+#header .profile p {
+  font-size: 14px;
+  margin: 10px 0 0 0;
+  padding: 0;
+  text-align: center;
 }
 #header .profile .social-links a {
   font-size: 18px;
@@ -215,6 +224,12 @@ h1, h2, h3, h4, h5, h6 {
   position: relative;
   z-index: 2;
   min-width: 300px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  text-align: center;
 }
 #hero h1 {
   margin: 0 0 10px 0;
@@ -222,12 +237,14 @@ h1, h2, h3, h4, h5, h6 {
   font-weight: 700;
   line-height: 56px;
   color: #fff;
+  text-align: center;
 }
 #hero p {
   color: #fff;
-  margin-bottom: 50px;
+  margin: 15px 0;
   font-size: 26px;
   font-family: "Poppins", sans-serif;
+  text-align: center;
 }
 #hero p span {
   color: #fff;
@@ -491,27 +508,42 @@ section {
 # Portfolio Items
 --------------------------------------------------------------*/
 
+.portfolio .portfolio-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 30px;
+  padding: 20px;
+  width: 100%; /* Ensure container takes full width */
+  max-width: 1200px; /* Limit container width */
+  margin: 0 auto; /* Center the container itself */
+}
+
 .portfolio .portfolio-item {
   display: flex;
-  /*align-items: center;  This will vertically center the items in the container */
   align-items: flex-start;
-  justify-content: space-between; /* This will place the content and image on opposite ends */
-  margin-bottom: 30px;
-  padding: 25px;
+  justify-content: space-between; 
+  margin-bottom: 50px;
   background-color: #ffffff; 
   box-shadow: 0px 0px 100px 5px #173b6c;
   opacity: 0.8;
   border: 3px #000000 solid;
-  border-radius: 5px;
+  border-radius: 8px;
+  padding: 25px;
+  
+  /* Adjust width settings */
+  width: 100%; /* Take full width of container */
+  max-width: 1000px; /* Maximum width of each item */
+  position: relative;
+  transition: all 200ms ease-in;
 }
 
-.portfolio .portfolio-item:hover {
+/* .portfolio .portfolio-item:hover {
   opacity: .5;
   transition: all 200ms ease-in;
   transform: scale(1.05) rotate(-2deg);
   box-shadow: 0px 0px 100px 5px #121c2e;
-
-}
+} */
 
 .portfolio .portfolio-image-wrap {
   flex: 0 1 auto;  /*This will not allow the image to grow but can shrink */
@@ -543,7 +575,6 @@ section {
   height: auto; /* Maintains the aspect ratio of the image */
 }
 
-
 .portfolio .portfolio-links {
   opacity: .8;
   left: 0;
@@ -555,7 +586,6 @@ section {
   display: flex;
   padding: 10px;
 }
-
 
 .portfolio  .portfolio-links a {
   color: #fff;
@@ -616,7 +646,6 @@ section {
   }
 }
 
-
 /*--------------------------------------------------------------
 # VIEW MORE
 --------------------------------------------------------------*/
@@ -661,9 +690,6 @@ section {
 .portfolio  #view-more-button a:hover {
   background: rgba(20, 157, 221, 0.95);
 }
-
-
-
 
 /*--------------------------------------------------------------
 # Portfolio Details
