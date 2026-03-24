@@ -55,6 +55,7 @@
         <ul>
           <li><a href="#hero" class="nav-link scrollto active" data-engine-hover="nav"><i class="bx bx-home"></i> <span>Home</span></a></li>
           <li><a href="#portfolio" class="nav-link scrollto" data-engine-hover="nav"><i class="bx bx-book-content"></i> <span>Projects</span></a></li>
+          <li><a href="#arcade" class="nav-link scrollto" data-engine-hover="nav"><i class="bx bx-joystick"></i> <span>Arcade</span></a></li>
           <li><a href="#about" class="nav-link scrollto" data-engine-hover="nav"><i class="bx bx-user"></i> <span>About</span></a></li>
           <li><a href="#skills" class="nav-link scrollto" data-engine-hover="nav"><i class="bx bx-bar-chart-alt-2"></i> <span>Skills</span></a></li>
           <li><a href="#resume" class="nav-link scrollto" data-engine-hover="nav"><i class="bx bx-file-blank"></i> <span>Resume</span></a></li>
@@ -449,8 +450,30 @@
       </div>
     </section><!-- End Portfolio Section -->
 
+    <!-- ======= Arcade Section ======= -->
+    <section id="arcade" class="arcade section-bg">
+      <div class="container">
 
+        <div class="section-title">
+          <div class="quest-label">— ARCADE —</div>
+          <h2>Play PDKM</h2>
+          <p>Try one of my games right here — no download needed</p>
+        </div>
 
+        <div class="arcade-container" data-engine-hover="arcade">
+          <div class="arcade-overlay" id="arcade-overlay">
+            <div class="arcade-overlay-icon">🕹️</div>
+            <div class="arcade-overlay-title">PDKM</div>
+            <div class="arcade-overlay-sub">Click to play in browser</div>
+            <button class="arcade-play-btn" data-engine-click="arcade-play">▶ PLAY</button>
+          </div>
+          <button class="arcade-fullscreen-btn" id="arcade-fullscreen">⛶ Fullscreen</button>
+          <!-- iframe injected by arcade.js on play -->
+        </div>
+
+      </div>
+    </section>
+    <!-- End Arcade Section -->
 
       <!-- ======= About Section ======= -->
       <section id="about" class="about section-bg">
@@ -1001,6 +1024,7 @@
   <script src="assets/js/modules/cursor.js"></script>
   <script src="assets/js/modules/particles.js"></script>
   <script src="assets/js/modules/game-ui.js"></script>
+  <script src="assets/js/modules/arcade.js"></script>
 
   <!-- Initialize Portfolio Engine after all modules loaded -->
   <script>PortfolioEngine.init();</script>
