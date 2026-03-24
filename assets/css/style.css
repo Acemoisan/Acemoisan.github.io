@@ -1410,6 +1410,13 @@ section {
   opacity: 1;
 }
 
+.arcade-container:fullscreen {
+  border: none;
+  border-radius: 0;
+  box-shadow: none;
+  background: #000;
+}
+
 /* ======= Portfolio Engine: Theatre Mode ======= */
 .pe-theatre-overlay {
   position: fixed;

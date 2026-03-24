@@ -105,14 +105,14 @@ PortfolioEngine.register('particles', (engine) => {
     p.active = true;
   };
 
-  // Track mouse — check if cursor is within hero or featured bounds
+  // Track mouse — only spawn trail in hero section
   document.addEventListener('mousemove', (e) => {
     mouseX = e.clientX;
     mouseY = e.clientY;
-    inHero = ambientSections.some(el => {
-      const rect = el.getBoundingClientRect();
-      return e.clientY >= rect.top && e.clientY <= rect.bottom;
-    });
+    if (heroEl) {
+      const rect = heroEl.getBoundingClientRect();
+      inHero = e.clientY >= rect.top && e.clientY <= rect.bottom;
+    }
     if (inHero) spawnTrail();
   });
 
