@@ -1309,10 +1309,11 @@ section {
   max-width: 960px;
   margin: 0 auto;
   aspect-ratio: 16 / 9;
-  background: rgba(0, 0, 0, 0.5);
+  background: #040b14;
   border: 2px solid #149ddd;
   border-radius: 8px;
   overflow: hidden;
+  box-shadow: 0 4px 24px rgba(20, 157, 221, 0.15);
 }
 
 .arcade-overlay {
@@ -1322,10 +1323,10 @@ section {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  background: rgba(4, 11, 20, 0.85);
+  background: linear-gradient(135deg, rgba(4, 11, 20, 0.92), rgba(5, 13, 24, 0.88));
   z-index: 2;
   cursor: pointer;
-  transition: opacity 0.3s;
+  transition: opacity 0.4s ease;
 }
 
 .arcade-overlay.pe-hidden {
@@ -1334,36 +1335,47 @@ section {
 }
 
 .arcade-overlay-icon {
-  font-size: 3rem;
-  margin-bottom: 8px;
+  font-size: 2.5rem;
+  margin-bottom: 12px;
+  filter: drop-shadow(0 0 12px rgba(20, 157, 221, 0.4));
 }
 
 .arcade-overlay-title {
-  font-size: 1.2rem;
+  font-family: "Raleway", sans-serif;
+  font-size: 1.6rem;
   font-weight: 700;
   color: #fff;
+  letter-spacing: 2px;
+  text-transform: uppercase;
 }
 
 .arcade-overlay-sub {
+  font-family: "Open Sans", sans-serif;
   font-size: 0.85rem;
-  opacity: 0.6;
-  margin-bottom: 16px;
+  color: #b2becd;
+  margin-top: 4px;
+  margin-bottom: 24px;
 }
 
 .arcade-play-btn {
-  background: #149ddd;
-  color: #fff;
-  border: none;
-  padding: 10px 32px;
-  border-radius: 6px;
+  background: transparent;
+  color: #149ddd;
+  border: 2px solid #149ddd;
+  padding: 12px 40px;
+  border-radius: 4px;
+  font-family: "Raleway", sans-serif;
   font-size: 1rem;
   font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
   cursor: pointer;
-  transition: background 0.2s;
+  transition: all 0.3s ease;
 }
 
 .arcade-play-btn:hover {
-  background: #1178aa;
+  background: #149ddd;
+  color: #fff;
+  box-shadow: 0 0 20px rgba(20, 157, 221, 0.4);
 }
 
 .arcade-iframe {
@@ -1374,18 +1386,24 @@ section {
 
 .arcade-fullscreen-btn {
   position: absolute;
-  top: 8px;
-  right: 8px;
-  background: rgba(0, 0, 0, 0.6);
-  color: #fff;
-  border: 1px solid rgba(255, 255, 255, 0.2);
+  top: 10px;
+  right: 10px;
+  background: rgba(4, 11, 20, 0.8);
+  color: #b2becd;
+  border: 1px solid rgba(20, 157, 221, 0.3);
   border-radius: 4px;
-  padding: 4px 10px;
+  padding: 5px 12px;
+  font-family: "Open Sans", sans-serif;
   font-size: 0.75rem;
   cursor: pointer;
   z-index: 3;
   opacity: 0;
-  transition: opacity 0.2s;
+  transition: all 0.2s ease;
+}
+
+.arcade-fullscreen-btn:hover {
+  color: #fff;
+  border-color: #149ddd;
 }
 
 .arcade-container:hover .arcade-fullscreen-btn {
