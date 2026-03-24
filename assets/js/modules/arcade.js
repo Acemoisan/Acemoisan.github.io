@@ -26,8 +26,13 @@ PortfolioEngine.register('arcade', (engine) => {
     iframe.setAttribute('allow', 'autoplay; fullscreen');
     container.appendChild(iframe);
 
-    // Hide overlay
+    // Hide overlay and go fullscreen
     overlay.classList.add('pe-hidden');
+    if (container.requestFullscreen) {
+      container.requestFullscreen();
+    } else if (container.webkitRequestFullscreen) {
+      container.webkitRequestFullscreen();
+    }
 
     engine.emit('arcade:start');
 
