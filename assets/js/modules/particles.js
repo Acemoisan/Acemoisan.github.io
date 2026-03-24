@@ -38,12 +38,18 @@ PortfolioEngine.register('particles', (engine) => {
 
   const getParticle = () => particles.find(p => !p.active);
 
-  // Spawn ambient particle in hero section
+  // Spawn ambient particles in hero and featured sections
   const heroEl = document.getElementById('hero');
+  const featuredEl = document.getElementById('portfolio');
+  const ambientSections = [heroEl, featuredEl].filter(Boolean);
+
   const spawnAmbient = () => {
+    const target = ambientSections[Math.floor(Math.random() * ambientSections.length)];
     const p = getParticle();
-    if (!p) return;
-    const rect = heroEl ? heroEl.getBoundingClientRect() : { left: 0, top: 0, width: w, height: h };
+    if (!p || !target) return;
+    const rect = target.getBoundingClientRect();
+    // Only spawn if section is at least partially visible
+    if (rect.bottom < 0 || rect.top > h) return;
     p.x = rect.left + Math.random() * rect.width;
     p.y = rect.top + rect.height + 10;
     p.vx = (Math.random() - 0.5) * 0.3;
@@ -99,14 +105,14 @@ PortfolioEngine.register('particles', (engine) => {
     p.active = true;
   };
 
-  // Track mouse — check if cursor is within hero bounds directly
+  // Track mouse — check if cursor is within hero or featured bounds
   document.addEventListener('mousemove', (e) => {
     mouseX = e.clientX;
     mouseY = e.clientY;
-    if (heroEl) {
-      const rect = heroEl.getBoundingClientRect();
-      inHero = e.clientY >= rect.top && e.clientY <= rect.bottom;
-    }
+    inHero = ambientSections.some(el => {
+      const rect = el.getBoundingClientRect();
+      return e.clientY >= rect.top && e.clientY <= rect.bottom;
+    });
     if (inHero) spawnTrail();
   });
 
