@@ -1133,27 +1133,27 @@ section {
   left: 0;
   pointer-events: none;
   z-index: 99999;
-  mix-blend-mode: difference;
   transition: opacity 0.2s;
 }
 
 .pe-cursor-dot {
   position: absolute;
-  top: -4px;
-  left: -4px;
-  width: 8px;
-  height: 8px;
+  top: -5px;
+  left: -5px;
+  width: 10px;
+  height: 10px;
   background: #149ddd;
   border-radius: 50%;
+  box-shadow: 0 0 8px rgba(20, 157, 221, 0.6);
 }
 
 .pe-cursor-ring {
   position: absolute;
-  top: -18px;
-  left: -18px;
-  width: 36px;
-  height: 36px;
-  border: 1.5px solid rgba(20, 157, 221, 0.5);
+  top: -20px;
+  left: -20px;
+  width: 40px;
+  height: 40px;
+  border: 2px solid rgba(20, 157, 221, 0.6);
   border-radius: 50%;
   transition: transform 0.2s ease-out;
 }

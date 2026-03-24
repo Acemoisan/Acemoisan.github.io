@@ -105,4 +105,67 @@ PortfolioEngine.register('game-ui', (engine) => {
   engine.on('arcade:milestone', () => {
     showToast({ id: 'gamer', icon: '🎮', title: 'Gamer', desc: 'Tried the arcade!' });
   });
+
+  // First Click: clicked any project card
+  let firstClickDone = false;
+  engine.on('click:project', () => {
+    if (firstClickDone) return;
+    firstClickDone = true;
+    showToast({ id: 'first-click', icon: '👆', title: 'First Contact', desc: 'Clicked your first project' });
+  });
+
+  // Networker: clicked a social link
+  let socialClicked = false;
+  engine.on('hover:link', () => {
+    // Track actual clicks on social links
+  });
+  document.querySelector('.social-links')?.addEventListener('click', (e) => {
+    if (socialClicked) return;
+    if (e.target.closest('a')) {
+      socialClicked = true;
+      showToast({ id: 'networker', icon: '🤝', title: 'Networker', desc: 'Checked out a social link' });
+    }
+  });
+
+  // Skill Scout: scrolled to the skills section
+  const skillsEl = document.getElementById('skills');
+  if (skillsEl && 'IntersectionObserver' in window) {
+    const skillsObs = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          showToast({ id: 'skill-scout', icon: '⚔️', title: 'Skill Scout', desc: 'Viewed the inventory' });
+          skillsObs.disconnect();
+        }
+      });
+    }, { threshold: 0.3 });
+    skillsObs.observe(skillsEl);
+  }
+
+  // Cinephile: watched the video (scrolled to it / it became visible)
+  const videoIframe = document.querySelector('#portfolio iframe[src*="youtube"]');
+  if (videoIframe && 'IntersectionObserver' in window) {
+    const videoObs = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          showToast({ id: 'cinephile', icon: '🎬', title: 'Cinephile', desc: 'Found the featured trailer' });
+          videoObs.disconnect();
+        }
+      });
+    }, { threshold: 0.5 });
+    videoObs.observe(videoIframe);
+  }
+
+  // Speed Reader: scrolled to resume section
+  const resumeEl = document.getElementById('resume');
+  if (resumeEl && 'IntersectionObserver' in window) {
+    const resumeObs = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          showToast({ id: 'recruiter', icon: '📋', title: 'Recruiter', desc: 'Reviewed the quest log' });
+          resumeObs.disconnect();
+        }
+      });
+    }, { threshold: 0.2 });
+    resumeObs.observe(resumeEl);
+  }
 });
