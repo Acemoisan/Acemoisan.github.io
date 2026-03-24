@@ -87,7 +87,7 @@
         <!-- Featured Video -->
         <div class="row justify-content-center" data-aos="fade-up">
           <div class="col-lg-8 text-center">
-            <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; border-radius: 8px;">
+            <div class="video-container" style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; border-radius: 8px; border: 2px solid #149ddd;">
               <iframe src="https://www.youtube.com/embed/V3mC14nnemw"
                 style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0;"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
@@ -759,7 +759,35 @@
   <script src="assets/js/modules/arcade.js"></script>
 
   <!-- Initialize Portfolio Engine after all modules loaded -->
-  <script>PortfolioEngine.init();</script>
+  <script>
+    PortfolioEngine.init();
+
+    // Theatre mode — dim background when clicking the video
+    (() => {
+      const videoContainer = document.querySelector('.video-container');
+      if (!videoContainer) return;
+      const overlay = document.createElement('div');
+      overlay.className = 'pe-theatre-overlay';
+      document.body.appendChild(overlay);
+
+      videoContainer.addEventListener('click', () => {
+        overlay.classList.add('active');
+        videoContainer.classList.add('pe-theatre-active');
+      });
+
+      overlay.addEventListener('click', () => {
+        overlay.classList.remove('active');
+        videoContainer.classList.remove('pe-theatre-active');
+      });
+
+      document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape') {
+          overlay.classList.remove('active');
+          videoContainer.classList.remove('pe-theatre-active');
+        }
+      });
+    })();
+  </script>
 
 </body>
 

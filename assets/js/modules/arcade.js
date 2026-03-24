@@ -7,9 +7,8 @@ PortfolioEngine.register('arcade', (engine) => {
   const fullscreenBtn = document.getElementById('arcade-fullscreen');
   if (!container || !overlay) return;
 
-  // itch.io embed for PDKM (game ID: 2487984)
-  // TODO: Replace with embed-upload URL from itch.io dashboard for playable embed
-  const EMBED_URL = 'https://itch.io/embed/2487984?dark=true';
+  // itch.io playable embed for PDKM
+  const EMBED_URL = 'https://itch.io/embed-upload/15248940?color=306f76';
   let iframe = null;
   let playing = false;
   let playTimer = null;

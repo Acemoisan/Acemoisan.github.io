@@ -1392,6 +1392,26 @@ section {
   opacity: 1;
 }
 
+/* ======= Portfolio Engine: Theatre Mode ======= */
+.pe-theatre-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0);
+  z-index: 100;
+  pointer-events: none;
+  transition: background 0.4s ease;
+}
+
+.pe-theatre-overlay.active {
+  background: rgba(0, 0, 0, 0.7);
+  pointer-events: auto;
+}
+
+.video-container.pe-theatre-active {
+  position: relative;
+  z-index: 101;
+}
+
 /* ======= Portfolio Engine: Mobile Adjustments ======= */
 @media (max-width: 768px) {
   .pe-cursor { display: none !important; }
