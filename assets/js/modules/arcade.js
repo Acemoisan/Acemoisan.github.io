@@ -58,10 +58,20 @@ PortfolioEngine.register('arcade', (engine) => {
     if (playTimer) clearTimeout(playTimer);
   });
 
-  // Stop on ESC from fullscreen
+  // Stop and reset on exiting fullscreen
   document.addEventListener('fullscreenchange', () => {
     if (!document.fullscreenElement && playing) {
       engine.emit('arcade:stop');
+
+      // Remove iframe to fully reset the game
+      if (iframe) {
+        iframe.remove();
+        iframe = null;
+      }
+
+      // Show overlay again so user can replay
+      overlay.classList.remove('pe-hidden');
+      playing = false;
     }
   });
 });
