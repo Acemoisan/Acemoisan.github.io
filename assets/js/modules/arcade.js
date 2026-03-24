@@ -8,7 +8,7 @@ PortfolioEngine.register('arcade', (engine) => {
   if (!container || !overlay) return;
 
   // itch.io playable embed for PDKM
-  const EMBED_URL = 'https://itch.io/embed-upload/15248940?color=306f76';
+  const EMBED_URL = 'https://itch.io/embed-upload/15248940?color=000000';
   let iframe = null;
   let playing = false;
   let playTimer = null;
