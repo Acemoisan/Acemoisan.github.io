@@ -1391,3 +1391,24 @@ section {
 .arcade-container:hover .arcade-fullscreen-btn {
   opacity: 1;
 }
+
+/* ======= Portfolio Engine: Mobile Adjustments ======= */
+@media (max-width: 768px) {
+  .pe-cursor { display: none !important; }
+
+  .pe-toast {
+    min-width: auto;
+    max-width: 280px;
+    right: 12px;
+    bottom: 12px;
+  }
+
+  .arcade-container {
+    aspect-ratio: 4 / 3; /* taller on mobile for better playability */
+  }
+
+  .quest-label {
+    font-size: 0.6rem;
+    letter-spacing: 2px;
+  }
+}
