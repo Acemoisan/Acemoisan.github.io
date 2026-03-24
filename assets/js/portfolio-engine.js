@@ -35,6 +35,9 @@ const PortfolioEngine = (() => {
     },
 
     init() {
+      if (this._initialized) return;
+      this._initialized = true;
+
       // Initialize all registered modules
       Object.entries(modules).forEach(([name, mod]) => {
         try {
@@ -57,9 +60,10 @@ const PortfolioEngine = (() => {
 
       document.addEventListener('mouseout', (e) => {
         const target = e.target.closest('[data-engine-hover]');
-        if (target) {
+        if (target && !target.contains(e.relatedTarget)) {
+          const type = state.hoverTarget?.type;
           state.hoverTarget = null;
-          engine.emit('hover:leave', { el: target });
+          engine.emit('hover:leave', { el: target, type });
         }
       });
 
