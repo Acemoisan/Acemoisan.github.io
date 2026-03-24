@@ -1396,11 +1396,14 @@ section {
 @media (max-width: 768px) {
   .pe-cursor { display: none !important; }
 
+  .pe-toast-container {
+    right: 12px;
+    bottom: 12px;
+  }
+
   .pe-toast {
     min-width: auto;
     max-width: 280px;
-    right: 12px;
-    bottom: 12px;
   }
 
   .arcade-container {

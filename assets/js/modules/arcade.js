@@ -7,8 +7,9 @@ PortfolioEngine.register('arcade', (engine) => {
   const fullscreenBtn = document.getElementById('arcade-fullscreen');
   if (!container || !overlay) return;
 
-  // itch.io embed widget for PDKM (game ID: 2487984)
-  const EMBED_URL = 'https://itch.io/embed/2487984?dark=true';
+  // itch.io HTML5 game embed for PDKM (game ID: 2487984)
+  // Using embed-upload to load the playable game, not the store widget
+  const EMBED_URL = 'https://itch.io/embed-upload/2487984?color=149ddd';
   let iframe = null;
   let playing = false;
   let playTimer = null;
@@ -47,6 +48,11 @@ PortfolioEngine.register('arcade', (engine) => {
       }
     });
   }
+
+  // Clear play timer on stop
+  engine.on('arcade:stop', () => {
+    if (playTimer) clearTimeout(playTimer);
+  });
 
   // Stop on ESC from fullscreen
   document.addEventListener('fullscreenchange', () => {

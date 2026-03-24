@@ -10,7 +10,6 @@ PortfolioEngine.register('cursor', (engine) => {
   cursor.innerHTML = '<div class="pe-cursor-dot"></div><div class="pe-cursor-ring"></div>';
   document.body.appendChild(cursor);
 
-  const dot = cursor.querySelector('.pe-cursor-dot');
   const ring = cursor.querySelector('.pe-cursor-ring');
 
   let mouseX = 0, mouseY = 0;
