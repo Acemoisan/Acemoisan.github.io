@@ -1175,3 +1175,125 @@ section {
 .pe-cursor--hidden {
   opacity: 0 !important;
 }
+
+/* ======= Portfolio Engine: Game UI Module ======= */
+
+/* --- XP Skill Bars --- */
+.xp-bar {
+  background: rgba(0, 0, 0, 0.3);
+  border-radius: 4px;
+  padding: 8px 12px;
+  margin-bottom: 12px;
+}
+
+.xp-bar-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.85rem;
+  margin-bottom: 4px;
+}
+
+.xp-bar-name {
+  font-weight: 600;
+  color: #fff;
+}
+
+.xp-bar-flavor {
+  opacity: 0.4;
+  font-family: monospace;
+  font-size: 0.75rem;
+  margin-left: 8px;
+}
+
+.xp-bar-level {
+  color: #10b981;
+  font-size: 0.8rem;
+  font-weight: 600;
+}
+
+.xp-bar-track {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 3px;
+  height: 8px;
+  overflow: hidden;
+}
+
+.xp-bar-fill {
+  height: 100%;
+  width: 0;
+  border-radius: 3px;
+  background: linear-gradient(90deg, #10b981, #34d399);
+  transition: width 1.2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+/* --- Quest-Style Section Headers --- */
+.quest-label {
+  font-size: 0.65rem;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  color: #149ddd;
+  opacity: 0.7;
+  text-align: center;
+  margin-bottom: 2px;
+}
+
+.quest-subtitle {
+  font-size: 0.75rem;
+  opacity: 0.4;
+  text-align: center;
+  margin-top: 2px;
+}
+
+/* --- Achievement Toasts --- */
+.pe-toast-container {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  z-index: 99998;
+  pointer-events: none;
+}
+
+.pe-toast {
+  background: rgba(4, 11, 20, 0.95);
+  border: 1px solid rgba(16, 185, 129, 0.3);
+  border-left: 4px solid #10b981;
+  border-radius: 8px;
+  padding: 12px 16px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  min-width: 280px;
+  max-width: 360px;
+  transform: translateX(120%);
+  transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+  margin-top: 8px;
+}
+
+.pe-toast.pe-toast--visible {
+  transform: translateX(0);
+}
+
+.pe-toast-icon {
+  font-size: 1.5rem;
+  flex-shrink: 0;
+}
+
+.pe-toast-label {
+  font-size: 0.65rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: #10b981;
+}
+
+.pe-toast-title {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: #fff;
+}
+
+.pe-toast-desc {
+  font-size: 0.75rem;
+  opacity: 0.6;
+  color: #ccc;
+}
