@@ -1125,3 +1125,53 @@ section {
     padding-right: 20px 15px;
   }
 }
+
+/* ======= Portfolio Engine: Cursor Module ======= */
+.pe-cursor {
+  position: fixed;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+  z-index: 99999;
+  mix-blend-mode: difference;
+  transition: opacity 0.2s;
+}
+
+.pe-cursor-dot {
+  position: absolute;
+  top: -4px;
+  left: -4px;
+  width: 8px;
+  height: 8px;
+  background: #149ddd;
+  border-radius: 50%;
+}
+
+.pe-cursor-ring {
+  position: absolute;
+  top: -18px;
+  left: -18px;
+  width: 36px;
+  height: 36px;
+  border: 1.5px solid rgba(20, 157, 221, 0.5);
+  border-radius: 50%;
+  transition: transform 0.2s ease-out;
+}
+
+.pe-cursor--project .pe-cursor-dot {
+  background: #10b981;
+}
+
+.pe-cursor--project .pe-cursor-ring {
+  border-color: rgba(16, 185, 129, 0.5);
+  border-width: 2px;
+}
+
+.pe-cursor--nav .pe-cursor-ring,
+.pe-cursor--link .pe-cursor-ring {
+  border-color: rgba(20, 157, 221, 0.7);
+}
+
+.pe-cursor--hidden {
+  opacity: 0 !important;
+}
